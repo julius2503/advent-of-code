@@ -1,5 +1,5 @@
 sum = 0
-with open('day1/day1_1.txt', 'r') as f:
+with open('2023/day1/day1.txt', 'r') as f:
     for line in f.readlines():
         lineSum = ""
         for letter in line:
