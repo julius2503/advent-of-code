@@ -7,7 +7,7 @@ def removeEmptyStrings(list):
         list.remove('')
     return list
 
-with open("2023/day6/day6.txt", "r") as f:
+with open("./day6.txt", "r") as f:
     lines = f.readlines()
     time = lines[0]
     time = time.strip()
