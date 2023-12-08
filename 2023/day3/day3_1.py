@@ -31,7 +31,7 @@ def findDigits(lines, i, j):
 
 notSymbols = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'} 
 sum = 0
-with open('2023/day3/day3.txt', 'r') as f:
+with open('./day3.txt', 'r') as f:
     lines = f.read()
     lines = lines.splitlines()
     splitedLines = []
