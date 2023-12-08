@@ -1,3 +1,4 @@
+"""
 def findValue(i, j):
     string = ""
     # check left
@@ -73,7 +74,7 @@ def findDigit(i, j, w, x, y, z):
 
 digits = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'} 
 sum = 0
-with open('2023/day3/day3.txt', 'r') as f:
+with open('./day3.txt', 'r') as f:
     lines = f.read()
     lines = lines.splitlines()
     splitedLines = []
@@ -97,8 +98,80 @@ with open('2023/day3/day3.txt', 'r') as f:
                         if res3[0] == -1:
                             value = value1 * value2
                             sum += value
+"""
+digits = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'} 
+sum = 0
 
-print(sum)
+def findNumber(list):
+      # test the line before
+    if  (i > 0 and j > 0 and 
+        str(splitedLines[i-1][j-1]) in digits
+        ):
+            return i-1, j-1
+    
+    elif(i > 0 and 
+        str(splitedLines[i-1][j]) in digits
+        ):
+            return i-1, j
+    
+    elif(i > 0 and j < len(splitedLines[i])-1 and
+        str(splitedLines[i-1][j+1]) in digits
+        ):
+            return i-1, j+1
+    
+    # test same line
+    elif(j > 0 and 
+        str(splitedLines[i][j-1]) in digits
+        ):
+            return i, j-1
+    
+    elif(j < len(splitedLines[1])-1 and 
+        str(splitedLines[i][j+1]) in digits
+        ):
+            return i, j+1
+
+    # test the line after
+    elif(i < len(lines)-1 and j > 0 and 
+         str(splitedLines[i+1][j-1]) in digits and 
+         w != i+1 and x != j-1 and y != i+1 and z != j-1
+         ):
+            return i+1, j-1
+
+    elif(i < len(lines)-1 and 
+        str(splitedLines[i+1][j]) in digits and 
+        w != i+1 and x != j and y != i+1 and z != j
+        ):
+            return i+1, j
+    
+    elif(i < len(lines)-1 and j < len(splitedLines[i])-1 and 
+        str(splitedLines[i+1][j+1]) in digits and 
+        w != i+1 and x != j+1 and y != i+1 and z != j+1
+        ):
+            return i+1, j+1
+    else:
+          return -1, -1
+
+with open('./day3.txt', 'r') as f:
+    lines = f.read()
+    lines = lines.splitlines()
+    splitedLines = []
+    for elem in lines:
+        splitedLines.append(list(elem))
+    for i, line in enumerate(lines):
+        checksum = 0
+        for j, letter in enumerate(line):
+            if letter == "*":
+                count = 0
+                ls = [] # list of first indice of line
+                print(ls)
+                while(count < 2):
+                    coords = findNumber(splitedLines)
+                    if coords[0] == -1:
+                          break
+                    if coords not in ls:
+                          ls.append(coords)
+                          
+                        
 
     
 
