@@ -1,5 +1,5 @@
 sum = 0
-with open('2023/day1/day1.txt', 'r') as f:
+with open('./day1.txt', 'r') as f:
     for line in f.readlines():
         lineSum = ""
         for i in range(len(line)):
