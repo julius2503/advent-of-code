@@ -23,7 +23,7 @@ def check(word):
 
 
 sum = 0
-with open('2023/day2/day2.txt', 'r') as f:
+with open('./day2.txt', 'r') as f:
     for line in f.readlines():
         x = line.split(":") # ['Game 4', ' 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n']
         picks = x[1] # 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
